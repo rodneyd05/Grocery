@@ -1,5 +1,6 @@
 package com.thisisit.grocery
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,5 +18,10 @@ class MainActivity : AppCompatActivity() {
         mainBinding.categoriesRecyclerView.layoutManager = LinearLayoutManager(this)
         val categoriesListAdapter = CategoriesAdapter(pairList)
         mainBinding.categoriesRecyclerView.adapter = categoriesListAdapter
+
+        mainBinding.cart.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 class GroceryAdapter(private var list: List<Grocery>): RecyclerView.Adapter<GroceryAdapter.GroceriesListHolder>() {
@@ -13,6 +14,7 @@ class GroceryAdapter(private var list: List<Grocery>): RecyclerView.Adapter<Groc
         val groceryName: TextView = itemView.findViewById(R.id.groceryName)
         val groceryPrice: TextView = itemView.findViewById(R.id.groceryPrice)
         val groceryImage: ImageView = itemView.findViewById(R.id.groceryImage)
+        val cartAdd: ImageView = itemView.findViewById(R.id.cartAdd)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroceriesListHolder {
@@ -27,11 +29,19 @@ class GroceryAdapter(private var list: List<Grocery>): RecyclerView.Adapter<Groc
 
     override fun onBindViewHolder(holder: GroceriesListHolder, position: Int) {
 
-        val builder = StringBuilder()
-        builder.append("Php ").append(list[position].price.toString())
+        val priceString = StringBuilder()
+        priceString.append("Php ").append(list[position].price.toString())
 
         holder.groceryName.text = list[position].name
-        holder.groceryPrice.text = builder.toString()
+        holder.groceryPrice.text = priceString
         holder.groceryImage.setImageResource(list[position].image)
+
+        holder.cartAdd.setOnClickListener {
+            val itemAdded = StringBuilder()
+            itemAdded.append(list[position].name).append(" added to cart")
+
+            cartList.add(list[position])
+            Toast.makeText(holder.itemView.context, itemAdded, Toast.LENGTH_SHORT).show()
+        }
     }
 }

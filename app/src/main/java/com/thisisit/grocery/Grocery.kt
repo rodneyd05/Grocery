@@ -33,7 +33,7 @@ val meatList = listOf(
 val beverageList = listOf(
     Grocery("Tea", 20.0, R.raw.tea),
     Grocery("Coffee", 20.0, R.raw.coffee),
-    Grocery("Healthiest of All!!!!!!!", 20.0, R.raw.beer)
+    Grocery("Healthiest of All", 20.0, R.raw.beer)
 )
 
 val pairList = listOf(

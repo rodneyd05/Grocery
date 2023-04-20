@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:text="Grocery"
         android:textColor="@color/black"
         android:textSize="34sp"
@@ -76,7 +76,7 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toEndOf="@+id/groceryTextView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cart" />
