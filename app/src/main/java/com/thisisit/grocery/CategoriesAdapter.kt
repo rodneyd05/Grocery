@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class CategoriesAdapter(private var categoriesList: List<String>): RecyclerView.Adapter<CategoriesAdapter.CategoriesListHolder>() {
+class CategoriesAdapter(private var list: List<PairData>): RecyclerView.Adapter<CategoriesAdapter.CategoriesListHolder>() {
 
     class CategoriesListHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val categoryName: TextView = itemView.findViewById(R.id.categoryName)
@@ -21,14 +21,14 @@ class CategoriesAdapter(private var categoriesList: List<String>): RecyclerView.
     }
 
     override fun getItemCount(): Int {
-        return categoriesList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: CategoriesListHolder, position: Int) {
-        holder.categoryName.text = categories[position]
+        holder.categoryName.text = list[position].name
 
         holder.groceryRecyclerView.layoutManager = LinearLayoutManager(holder.itemView.context, LinearLayoutManager.HORIZONTAL, false)
-        val groceriesListAdapter = GroceryAdapter(fruitList)
+        val groceriesListAdapter = GroceryAdapter(list[position].category)
         holder.groceryRecyclerView.adapter = groceriesListAdapter
     }
 }

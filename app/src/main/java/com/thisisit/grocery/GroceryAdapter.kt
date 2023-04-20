@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class GroceryAdapter(private var groceriesList: List<Grocery>): RecyclerView.Adapter<GroceryAdapter.GroceriesListHolder>() {
+class GroceryAdapter(private var list: List<Grocery>): RecyclerView.Adapter<GroceryAdapter.GroceriesListHolder>() {
 
     class GroceriesListHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val groceryName: TextView = itemView.findViewById(R.id.groceryName)
@@ -22,12 +22,16 @@ class GroceryAdapter(private var groceriesList: List<Grocery>): RecyclerView.Ada
     }
 
     override fun getItemCount(): Int {
-        return groceriesList.size
+        return list.size
     }
 
     override fun onBindViewHolder(holder: GroceriesListHolder, position: Int) {
-        holder.groceryName.text = fruitList[position].name
-        holder.groceryPrice.text = fruitList[position].price.toString()
-        holder.groceryImage.setImageResource(fruitList[position].image)
+
+        val builder = StringBuilder()
+        builder.append("Php ").append(list[position].price.toString())
+
+        holder.groceryName.text = list[position].name
+        holder.groceryPrice.text = builder.toString()
+        holder.groceryImage.setImageResource(list[position].image)
     }
 }

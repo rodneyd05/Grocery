@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mainBinding.root)
 
         mainBinding.categoriesRecyclerView.layoutManager = LinearLayoutManager(this)
-        val categoriesListAdapter = CategoriesAdapter(categories)
+        val categoriesListAdapter = CategoriesAdapter(pairList)
         mainBinding.categoriesRecyclerView.adapter = categoriesListAdapter
     }
 }
